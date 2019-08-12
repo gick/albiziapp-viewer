@@ -1,0 +1,24 @@
+{
+  "name": "albiziapp-viewer",
+  "version": "1.0.0",
+  "description": "A viewer for Albiziapp",
+  "author": "gick",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/proxy": "^1.3.3",
+    "express": "^4.17.1",
+    "nuxt": "^2.0.0",
+    "nuxt-leaflet": "0.0.19",
+    "vue2-leaflet-markercluster": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0"
+  }
+}
