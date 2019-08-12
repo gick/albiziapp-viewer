@@ -16,7 +16,9 @@ export default {
   },
 
 },
-
+server:{
+  port:5000
+},
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
