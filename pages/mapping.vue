@@ -21,11 +21,6 @@
         persistent-hint
       ></v-select>
       <v-card>
-        <v-img
-          v-if="image.length>0"
-          :src="'/api/image/'+image"
-          style="max-width:300px;margin:auto;"
-        ></v-img>
 
         <v-card-title>
           Observations
@@ -55,7 +50,8 @@
               <l-marker
                 v-for="i in selected"
                 :lat-lng="[i.location.coordinates[1], i.location.coordinates[0]]"
-              ></l-marker>
+              ><l-popup :content="getContent(i)"></l-popup>
+              </l-marker>
             </v-marker-cluster>
           </l-map>
         </no-ssr>
@@ -121,6 +117,21 @@ export default {
     };
   },
   methods: {
+    getContent(obs){
+      let res = '<h3>'+'Auteur '+obs.authorName+'</h3>'
+           res=res+ '<div>'+'Date : '+obs.date+'</div>'
+           res=res+ '<div>'+' '+obs.specie+'</div>'
+           res=res+ '<div>'+' '+obs.common+'</div>'
+           res=res+ '<div>'+' '+obs.genus+'</div>'
+           res=res+ '<div>'+' '+obs.common_genus+'</div>'
+           if(obs.hasImage){
+                        res=res+ '<img '+' style="max-width:200px;max-height:200px;" src="https://albiziapp.reveries-project.fr/api/image/'+obs._id+'" />'
+
+           }
+      return res
+
+
+},
     setHeader(e) {
       let newHeaders = [];
       for (let i of e) {
