@@ -58,7 +58,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    ['@nuxtjs/proxy',{secure:false}],
     'nuxt-leaflet'
   ],
   /*
@@ -87,6 +87,9 @@ export default {
         }
       }
     }
+  },
+  proxy:{
+    '/api': 'https://albiziapp.reveries-project.fr',
   },
   /*
   ** Build configuration

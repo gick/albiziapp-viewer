@@ -78,7 +78,7 @@ export default {
 
   async asyncData({ $axios }) {
     console.log(this);
-    let data = await $axios.$get("https://albiziapp.reveries-project.fr/api/observation");
+    let data = await $axios.$get("/api/observation");
     return {
       data: data.map(x => {
         if (x.hasImage) {

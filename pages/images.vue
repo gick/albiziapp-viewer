@@ -23,7 +23,7 @@
       <v-card>
         <v-img
           v-if="image.length>0"
-          :src="'https://albiziapp.reveries-project.fr/api/image/'+image"
+          :src="'/api/image/'+image"
           style="max-width:300px;margin:auto;"
         ></v-img>
 
@@ -52,7 +52,7 @@
 export default {
   async asyncData({ $axios }) {
     console.log(this);
-    let data = await $axios.$get("https://albiziapp.reveries-project.fr/api/observation");
+    let data = await $axios.$get("/api/observation");
     return {
       data: data.map(x => {
         if (x.hasImage) {
